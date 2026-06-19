@@ -19,7 +19,6 @@ export default function Footer() {
           <div className="footer-links">
             <Link to="/ayuda">Ayuda</Link>
             <Link to="/conocenos">Conócenos</Link>
-            <Link to="/acceso">Acceso área privada</Link>
             <a href="#privacidad">Política de Privacidad</a>
             <a href="#acerca-de">Acerca de</a>
           </div>
@@ -28,7 +27,6 @@ export default function Footer() {
           <h3>Redes sociales</h3>
           <div className="social-links" aria-label="Redes sociales">
             <a href="#instagram" aria-label="Instagram" className="social-link"><FaInstagram /></a>
-            <a href="#facebook" aria-label="Facebook" className="social-link"><FaFacebookF /></a>
             <a href="#x" aria-label="X o Twitter" className="social-link"><FaXTwitter /></a>
             <a href="#youtube" aria-label="YouTube" className="social-link"><FaYoutube /></a>
             <a href="#linkedin" aria-label="LinkedIn" className="social-link"><FaLinkedinIn /></a>

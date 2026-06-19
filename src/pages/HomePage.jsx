@@ -48,8 +48,8 @@ export default function HomePage() {
         <div className="container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Carrusel de servicios</p>
-              <h2>Servicios y protocolos con imágenes reales</h2>
+              <p className="eyebrow">En nuestra clínica encontrarás</p>
+              <h2>Servicios de calidad</h2>
             </div>
             <button className="button button-secondary" onClick={() => setPlaying((v) => !v)} aria-label={playing ? 'Pausar carrusel' : 'Reanudar carrusel'}>
               {playing ? <FiPause /> : <FiPlay />} {playing ? 'Pausar' : 'Reanudar'}
@@ -103,6 +103,7 @@ export default function HomePage() {
             <h2>Blog de salud</h2>
             <p>Consejos prácticos para prevención, alimentación y cuidados en casa.</p>
             <ul>{posts.slice(0, 3).map((p) => <li key={p.title}>{p.title}</li>)}</ul>
+            <Link className="text-link" to="/blog">Ir al blog</Link>
           </article>
         </div>
       </section>

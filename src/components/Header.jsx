@@ -5,9 +5,9 @@ export default function Header({ cartCount }) {
   return (
     <header className="site-header">
       <div className="container header-top">
-        <p className="pill">Urgencias 24/7 · Nutrición saludable · Seguimiento personalizado</p>
+        <p>Urgencias 24/7 · Nutrición saludable · Seguimiento personalizado</p>
         <div className="header-mini-actions">
-          <Link to="/carrito" className="mini-link"><FiShoppingBag /> Carrito ({cartCount})</Link>
+          <Link to="/carrito" className="mini-link pill"><FiShoppingBag /> Carrito ({cartCount})</Link>
         </div>
       </div>
       <div className="container header-inner">
