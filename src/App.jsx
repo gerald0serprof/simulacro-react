@@ -14,6 +14,7 @@ import CartPage from './pages/CartPage';
 import HelpPage from './pages/HelpPage';
 import AboutPage from './pages/AboutPage';
 import { foodProducts } from './data/content';
+import AIAssistant from './components/AIAssistant';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,6 +69,7 @@ export default function App() {
         </Routes>
       </MainContent>
       <Footer />
+      <AIAssistant/>
     </div>
   );
 }
