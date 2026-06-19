@@ -6,14 +6,14 @@ export function useWebLLM() {
   const engineRef = useRef(null);
   const [engine, setEngine] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [loaded, setLoaded] = useState(false);
   const [progressText, setProgressText] = useState('');
   const [error, setError] = useState('');
 
   const loadModel = useCallback(async () => {
     if (engineRef.current) return engineRef.current;
+
     if (typeof navigator === 'undefined' || !navigator.gpu) {
-      setError('Tu navegador o dispositivo no soporta WebGPU.');
+      setError('Este navegador no soporta WebGPU. Prueba con Chrome o Edge actualizados.');
       return null;
     }
 
@@ -22,22 +22,28 @@ export function useWebLLM() {
       setError('');
       setProgressText('Inicializando modelo...');
 
+      const adapter = await navigator.gpu.requestAdapter();
+      if (!adapter) {
+        setError('No se encontró un adaptador WebGPU compatible en este dispositivo.');
+        return null;
+      }
+
       const webllm = await import('@mlc-ai/web-llm');
+
       const mlcEngine = await webllm.CreateMLCEngine(MODEL_ID, {
-        initProgressCallback: (report) => {
-          const percent = report.progress ? Math.round(report.progress * 100) : 0;
-          setProgressText(`${report.text || 'Cargando modelo'} ${percent}%`);
+        initProgressCallback: () => {
+            setProgressText('Activando IA local…');
         },
         logLevel: 'INFO',
       });
 
       engineRef.current = mlcEngine;
       setEngine(mlcEngine);
-      setLoaded(true);
       setProgressText('Modelo listo.');
       return mlcEngine;
     } catch (err) {
-      setError('No se pudo cargar el modelo WebLLM en este dispositivo.');
+      console.error('Error real cargando WebLLM:', err);
+      setError('No se pudo cargar la IA local en este dispositivo. Usaré modo asistido básico.');
       setProgressText('');
       return null;
     } finally {
@@ -45,5 +51,5 @@ export function useWebLLM() {
     }
   }, []);
 
-  return { engine, loading, loaded, progressText, error, loadModel };
+  return { engine, loading, progressText, error, loadModel };
 }
