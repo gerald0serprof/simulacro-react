@@ -2,21 +2,23 @@ export default function AboutPage() {
   return (
     <section className="section">
       <div className="container about-grid">
-        <div>
+        <article className="info-card">
           <p className="eyebrow">Conócenos</p>
-          <h1>Un equipo centrado en salud, prevención y confianza</h1>
+          <h1>Una clínica pensada para cuidar mejor</h1>
           <p>
-            La propuesta combina medicina veterinaria, nutrición y educación para acompañar a cada familia durante todo el ciclo de cuidado.
+            VetCare Clinic nace con una visión integral: combinar medicina veterinaria avanzada,
+            atención humana cercana y acompañamiento continuo en cada etapa de la vida de la mascota.
           </p>
-        </div>
-        <div className="info-card">
-          <h2>Nuestra forma de trabajar</h2>
+        </article>
+        <article className="info-card">
+          <h2>Nuestro enfoque</h2>
           <ul>
-            <li>Explicamos cada paso con lenguaje claro y transparente.</li>
-            <li>Fomentamos la continuidad asistencial.</li>
-            <li>Priorizamos accesibilidad, usabilidad, comunicación y empatía.</li>
+            <li>Atención médica avanzada.</li>
+            <li>Comunicación clara y transparente.</li>
+            <li>Seguimiento continuado tras consulta o cirugía.</li>
+            <li>Servicios complementarios de nutrición y prevención.</li>
           </ul>
-        </div>
+        </article>
       </div>
     </section>
   );
